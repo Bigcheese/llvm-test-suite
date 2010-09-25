@@ -7,7 +7,12 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#include <err.h>
+#if defined(_MSC_VER)
+  // Define inline as nothing.
+# define inline
+#else
+# include <err.h>
+#endif
 
 #define WIDTH 60
 #define MIN(a,b) ((a) <= (b) ? (a) : (b))
@@ -112,9 +117,6 @@ int main (int argc, char **argv) {
 	{ 0.1975473066391, 'g' },
 	{ 0.3015094502008, 't' }};
 
-    accumulate_probabilities (iub, NELEMENTS(iub));
-    accumulate_probabilities (homosapiens, NELEMENTS(homosapiens));
-
     static char const *const alu ="\
 GGCCGGGCGCGGTGGCTCACGCCTGTAATCCCAGCACTTTGG\
 GAGGCCGAGGCGGGCGGATCACCTGAGGTCAGGAGTTCGAGA\
@@ -123,6 +125,9 @@ ACAAAAATTAGCCGGGCGTGGTGGCGCGCGCCTGTAATCCCA\
 GCTACTCGGGAGGCTGAGGCAGGAGAATCGCTTGAACCCGGG\
 AGGCGGAGGTTGCAGTGAGCCGAGATCGCGCCACTGCACTCC\
 AGCCTGGGCGACAGAGCGAGACTCCGTCTCAAAAA";
+
+    accumulate_probabilities (iub, NELEMENTS(iub));
+    accumulate_probabilities (homosapiens, NELEMENTS(homosapiens));
 
     fputs (">ONE Homo sapiens alu\n", stdout);
     repeat_fasta (alu, 2 * n);

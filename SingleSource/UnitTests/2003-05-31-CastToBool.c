@@ -1,5 +1,10 @@
 #include <stdio.h>
 
+#if defined(_MSC_VER)
+  // Clang supports _Bool, but not in ms-extensions mode.
+  typedef unsigned char _Bool;
+#endif
+
 void testCastOps(int y) {
   printf("y = %d, (y == 2 || y == 0) == %d\n",
          y, ((_Bool) (y == 2)) || ((_Bool) (y == 0)));

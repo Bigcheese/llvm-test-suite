@@ -5,7 +5,11 @@
  */
 #include <stdio.h>
 #include <stdarg.h>
-#include <inttypes.h>
+#if defined(_MSC_VER)
+# include <stdint.h>
+#else
+# include <inttypes.h>
+#endif
 
 short getShort(char c, char c2, char c3, short s, short s2, int i);
 int   getUnknown(char c, ...);

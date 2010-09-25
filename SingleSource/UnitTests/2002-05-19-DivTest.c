@@ -2,7 +2,12 @@
 #ifndef __STDC_LIMIT_MACROS
 #define __STDC_LIMIT_MACROS 1
 #endif
-#include <inttypes.h>
+
+#ifdef _MSC_VER
+# include <stdint.h>
+#else
+# include <inttypes.h>
+#endif
 
 extern int printf(const char *, ...);
 

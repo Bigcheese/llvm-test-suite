@@ -108,47 +108,49 @@ int main(int argc, char **argv) {
             idx--; continue;
         }
 
-        unsigned x_u = (unsigned)rand();
-        unsigned y_u = (unsigned)rand();
-        unsigned z_u = (unsigned)rand();
-        
-        int x_s = (rand() % 2) ? rand() : -rand();
-        int y_s = (rand() % 2) ? rand() : -rand();
-        int z_s = (rand() % 2) ? rand() : -rand();
-
-        test(1, CongruenceTest(x_s, y_s, m));
-        test(2, CongruenceTest(x_s, y_u, m));
-        test(3, CongruenceTest(x_u, y_s, m));
-        test(4, CongruenceTest(x_u, y_u, m));
-        
-        test(5, AdditionOfCongruences(x_u, y_u, m));
-
-        test(6, SimpleCongruenceEquation(x_u, y_u, z_u, m));
-        
-        test(7, AdditionOfMultipleOfModIsNOP(x_u, y_u, m));
-
-        test(8, BothSidesCanBeDividedWithDivisorMutuallyPrimeWithMod(x_s, y_s, z_s, m));
-        test(9, BothSidesCanBeDividedWithDivisorMutuallyPrimeWithMod(x_s, y_s, z_u, m));
-        test(10, BothSidesCanBeDividedWithDivisorMutuallyPrimeWithMod(x_s, y_u, z_s, m));
-        test(11, BothSidesCanBeDividedWithDivisorMutuallyPrimeWithMod(x_s, y_u, z_u, m));
-        test(12, BothSidesCanBeDividedWithDivisorMutuallyPrimeWithMod(x_u, y_s, z_s, m));
-        test(13, BothSidesCanBeDividedWithDivisorMutuallyPrimeWithMod(x_u, y_s, z_u, m));
-        test(14, BothSidesCanBeDividedWithDivisorMutuallyPrimeWithMod(x_u, y_u, z_s, m));
-        test(15, BothSidesCanBeDividedWithDivisorMutuallyPrimeWithMod(x_u, y_u, z_u, m));
-
-        test(16, DivideBothSidesAndModulus(x_s, y_s, z_s, m));
-        test(17, DivideBothSidesAndModulus(x_s, y_s, z_u, m));
-        test(18, DivideBothSidesAndModulus(x_s, y_u, z_s, m));
-        test(19, DivideBothSidesAndModulus(x_s, y_u, z_u, m));
-        test(20, DivideBothSidesAndModulus(x_u, y_s, z_s, m));
-        test(21, DivideBothSidesAndModulus(x_u, y_s, z_u, m));
-        test(22, DivideBothSidesAndModulus(x_u, y_u, z_s, m));
-        test(23, DivideBothSidesAndModulus(x_u, y_u, z_u, m));
-
-        test(25, SubModulusTest(x_s, y_s, z_u, m));
-        test(27, SubModulusTest(x_s, y_u, z_u, m));
-        test(29, SubModulusTest(x_u, y_s, z_u, m));
-        test(31, SubModulusTest(x_u, y_u, z_u, m));
+        {
+          unsigned x_u = (unsigned)rand();
+          unsigned y_u = (unsigned)rand();
+          unsigned z_u = (unsigned)rand();
+          
+          int x_s = (rand() % 2) ? rand() : -rand();
+          int y_s = (rand() % 2) ? rand() : -rand();
+          int z_s = (rand() % 2) ? rand() : -rand();
+  
+          test(1, CongruenceTest(x_s, y_s, m));
+          test(2, CongruenceTest(x_s, y_u, m));
+          test(3, CongruenceTest(x_u, y_s, m));
+          test(4, CongruenceTest(x_u, y_u, m));
+          
+          test(5, AdditionOfCongruences(x_u, y_u, m));
+  
+          test(6, SimpleCongruenceEquation(x_u, y_u, z_u, m));
+          
+          test(7, AdditionOfMultipleOfModIsNOP(x_u, y_u, m));
+  
+          test(8, BothSidesCanBeDividedWithDivisorMutuallyPrimeWithMod(x_s, y_s, z_s, m));
+          test(9, BothSidesCanBeDividedWithDivisorMutuallyPrimeWithMod(x_s, y_s, z_u, m));
+          test(10, BothSidesCanBeDividedWithDivisorMutuallyPrimeWithMod(x_s, y_u, z_s, m));
+          test(11, BothSidesCanBeDividedWithDivisorMutuallyPrimeWithMod(x_s, y_u, z_u, m));
+          test(12, BothSidesCanBeDividedWithDivisorMutuallyPrimeWithMod(x_u, y_s, z_s, m));
+          test(13, BothSidesCanBeDividedWithDivisorMutuallyPrimeWithMod(x_u, y_s, z_u, m));
+          test(14, BothSidesCanBeDividedWithDivisorMutuallyPrimeWithMod(x_u, y_u, z_s, m));
+          test(15, BothSidesCanBeDividedWithDivisorMutuallyPrimeWithMod(x_u, y_u, z_u, m));
+  
+          test(16, DivideBothSidesAndModulus(x_s, y_s, z_s, m));
+          test(17, DivideBothSidesAndModulus(x_s, y_s, z_u, m));
+          test(18, DivideBothSidesAndModulus(x_s, y_u, z_s, m));
+          test(19, DivideBothSidesAndModulus(x_s, y_u, z_u, m));
+          test(20, DivideBothSidesAndModulus(x_u, y_s, z_s, m));
+          test(21, DivideBothSidesAndModulus(x_u, y_s, z_u, m));
+          test(22, DivideBothSidesAndModulus(x_u, y_u, z_s, m));
+          test(23, DivideBothSidesAndModulus(x_u, y_u, z_u, m));
+  
+          test(25, SubModulusTest(x_s, y_s, z_u, m));
+          test(27, SubModulusTest(x_s, y_u, z_u, m));
+          test(29, SubModulusTest(x_u, y_s, z_u, m));
+          test(31, SubModulusTest(x_u, y_u, z_u, m));
+        }
     }
     printf("\n *** REM test done! ***\n");
     return 0;
