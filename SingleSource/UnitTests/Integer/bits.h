@@ -5,7 +5,7 @@
 //
 //===----------------------------------------------------------------------===//
 //
-// This header file contains some type and macro definitiosn useful for working
+// This header file contains some type and macro definitions useful for working
 // with bit accurate types and the bitwise builtins
 //
 //===----------------------------------------------------------------------===//
